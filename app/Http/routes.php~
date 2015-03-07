@@ -1,15 +1,20 @@
 <?php
+Route::model('voters','Voter');
 
-Route::resource('/voting','VotingSystemController');
+Route::resource('/voters','VotersController');
 
-Route::get('/candidateEntry','VotingSystemController@createCandidate');
+Route::model('candidates','Candidate');
+Route::resource('/candidates','CandidatesController');
+
+Route::resource('/castVote','VoteCastController');
+
+/*Route::get('/castVote','CandidatesController@createCastVote');
+Route::post('/insertCastVote','CandidatesController@insertCastVote');*/
 
 
 
 
-
-
-Route::model('inboxes', 'Inbox');
+/*Route::model('inboxes', 'Inbox');
 
 // Use slugs rather than IDs in URLs
 Route::bind('inboxes', function($value, $route)
@@ -21,34 +26,9 @@ Route::resource('inboxes', 'InboxesController');
 Route::get('/sent','InboxesController@sent');
 Route::get('/draft','InboxesController@draft');
 Route::get('/trash','InboxesController@trash');
-Route::post('/softdelete','InboxesController@softDelete');
-
-
-
-
-
-Route::get('/', 'WelcomeController@index');
-Route::get('home', 'HomeController@index');
-
-Route::controllers([
-    'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController',
-]);
-
-Route::get('/calendar', 'SiteController@calendar');
-
-Route::get('/inbox','SiteController@inbox');
-Route::get('/inbox_inbox','SiteController@inbox_inbox');
-Route::get('/inbox_compose','SiteController@inbox_compose');
-Route::get('/inbox_reply','SiteController@inbox_reply');
-Route::get('/inbox_view','SiteController@inbox_view');
-
-Route::get('/ecommerce','SiteController@ecommerce');
-
-Route::get('/shajed','ShajedController@index');
 
 //testing function
 Route::get('/test',function(){
     return "hello World";
-});
+});*/
 

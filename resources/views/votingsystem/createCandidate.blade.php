@@ -3,7 +3,7 @@
 @section('content')
     <h1>Candidate Entry</h1>
 
-    {!! Form::open(array('url' => 'voting')) !!}
+    {!! Form::open(array('url' => 'candidates')) !!}
 
     <div class="form-group">
         {!! Form::label('candidateName', 'Candidate Name') !!}

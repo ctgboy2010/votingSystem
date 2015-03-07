@@ -1,12 +1,10 @@
 <?php
+Route::model('voters','Voter');
+Route::resource('/voters','VotersController');
 
-Route::resource('/voting','VotingSystemController');
+Route::model('candidates','Candidate');
+Route::resource('/candidates','CandidatesController');
 
-Route::get('/candidateEntry','VotingSystemController@createCandidate');
-
-
-
-
-
+Route::resource('/castVote','VoteCastController');
 
 

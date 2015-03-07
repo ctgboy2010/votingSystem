@@ -28,10 +28,10 @@
             <a class="navbar-brand" href="{{ URL::to('/sent') }}">Sent</a>
         </div>--}}
         <ul class="nav navbar-nav">
-            <li><a href="{{ URL::to('/voting/create') }}">Voter Entry</a></li>
-            <li><a href="{{ URL::to('/candidateEntry') }}">Candidate Entry</a>
-            <li><a href="{{ URL::to('/castVote') }}">Cast Vote</a>
-            <li><a href="{{ URL::to('/voting') }}">Result of Voting</a>
+            <li><a href="{{ URL::to('/voters') }}">Voter Entry</a></li>
+            <li><a href="{{ URL::to('/candidates/create') }}">Candidate Entry</a>
+            <li><a href="{{ URL::to('/castVote/create') }}">Cast Vote</a>
+            <li><a href="{{ URL::to('/castVote') }}">Result of Voting</a>
         </ul>
     </nav>
 

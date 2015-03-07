@@ -1,11 +1,13 @@
 <?php namespace App\Http\Controllers;
 
+use Input;
+use Redirect;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Candidate;
 use Illuminate\Http\Request;
 
-class VotingSystemController extends Controller {
+class CandidatesController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +16,7 @@ class VotingSystemController extends Controller {
 	 */
 	public function index()
 	{
-        return view('votingsystem.index');
+        return view('votingsystem.createCandidate');
 	}
 
 	/**
@@ -24,21 +26,20 @@ class VotingSystemController extends Controller {
 	 */
 	public function create()
 	{
-        return view('votingsystem.createVoter');
-	}
-    public function createCandidate()
-    {
         return view('votingsystem.createCandidate');
-    }
+	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Requests\CandidateRequest $candidateRequest)
 	{
-		//
+		$input = Input::all();
+        Candidate::create($input);
+
+        return Redirect::route('candidates.index')->with('message','Candidate Successfully Created');
 	}
 
 	/**

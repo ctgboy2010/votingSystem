@@ -1,9 +1,15 @@
 @extends('voting')
 
 @section('content')
+
+    <!-- will be used to show any messages -->
+   {{-- @if (Session::has('message'))
+        <div class="alert alert-info">{{ Session::get('message') }}</div>
+    @endif--}}
+    {{--{{ HTML ::ul($errors->all(), array('class'=>'errors')) }}--}}
     <h1>Voter Entry</h1>
 
-    {!! Form::open(array('url' => 'voting')) !!}
+    {!! Form::open(array('url' => 'voters')) !!}
 
     <div class="form-group">
         {!! Form::label('voterName', 'Voter Name') !!}

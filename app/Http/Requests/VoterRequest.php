@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class InboxRequest extends Request {
+class VoterRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -11,8 +11,7 @@ class InboxRequest extends Request {
 	 */
 	public function authorize()
 	{
-		//return false;
-        return true;
+		return true;
 	}
 
 	/**
@@ -23,9 +22,8 @@ class InboxRequest extends Request {
 	public function rules()
 	{
 		return [
-            'receiver_email_id' => 'required|email',
-            'subject'           => 'required',
-            'body_description'  => 'required'
+			'voterName' => 'required',
+            'voterId'   => 'required|min:13|unique:voters,voterId'
 		];
 	}
 
