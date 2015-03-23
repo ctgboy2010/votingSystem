@@ -20,13 +20,7 @@
 </head>
 <body>
 <div class="container">
-
-    <nav class="navbar navbar-inverse">
-       {{-- <div class="navbar-header">
-            <a class="navbar-brand" href="{{ URL::to('/trash') }}">Voter Entry</a>
-            <a class="navbar-brand" href="{{ URL::to('/draft') }}">Candidate Entry</a>
-            <a class="navbar-brand" href="{{ URL::to('/sent') }}">Sent</a>
-        </div>--}}
+    <nav class="navbar navbar-inverse">      
         <ul class="nav navbar-nav">
             <li><a href="{{ URL::to('/voters') }}">Voter Entry</a></li>
             <li><a href="{{ URL::to('/candidates/create') }}">Candidate Entry</a>
@@ -34,6 +28,18 @@
             <li><a href="{{ URL::to('/castVote') }}">Result of Voting</a>
         </ul>
     </nav>
+    @if (Session::has('message'))
+        <div class="flash alert-warning">
+            <h4 class="text-center">{{ Session::get('message') }}</h4>
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class='flash alert-danger'>
+            @foreach ( $errors->all() as $error )
+                <h4 class="text-center">{{ $error }}</h4>
+            @endforeach
+        </div>
+    @endif
 
     @yield('content')
 

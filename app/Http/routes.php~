@@ -1,34 +1,56 @@
 <?php
-Route::model('voters','Voter');
 
-Route::resource('/voters','VotersController');
-
-Route::model('candidates','Candidate');
-Route::resource('/candidates','CandidatesController');
-
-Route::resource('/castVote','VoteCastController');
-
-/*Route::get('/castVote','CandidatesController@createCastVote');
-Route::post('/insertCastVote','CandidatesController@insertCastVote');*/
+Route::get('/', 'WelcomeController@index');
+Route::get('/dolon', 'WelcomeController@dolon');
+Route::get('home', 'HomeController@index');
 
 
+Route::get('/calendar', 'SiteController@calendar');
+
+Route::get('/inbox','SiteController@inbox');
+Route::get('/inbox_inbox','SiteController@inbox_inbox');
+Route::get('/inbox_compose','SiteController@inbox_compose');
+Route::get('/inbox_reply','SiteController@inbox_reply');
+Route::get('/inbox_view','SiteController@inbox_view');
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
+
+Route::get('/about', 'AboutController@about');
+
+Route::get('/blog', 'BlogController@index');
+
+Route::get('/contact', 'ContactController@contact');
+
+Route::get('/newuserprofile', 'NuserprofileController@index');
+
+Route::get('/task/index', 'TaskController@index');
 
 
-/*Route::model('inboxes', 'Inbox');
+Route::get('article/create', 'ArticleController@create');
 
-// Use slugs rather than IDs in URLs
-Route::bind('inboxes', function($value, $route)
-{
-    return App\Inbox::whereid($value)->first();
-});
-Route::resource('inboxes', 'InboxesController');
 
-Route::get('/sent','InboxesController@sent');
-Route::get('/draft','InboxesController@draft');
-Route::get('/trash','InboxesController@trash');
+Route::get('layouts/newuserprofile', 'NuserprofileController@index');
 
-//testing function
-Route::get('/test',function(){
-    return "hello World";
-});*/
+
+Route::get('/searchResult.index', 'SearchResultController@search');
+
+
+Route::get('/userprofile', 'UserController@userprofile');
+
+Route::get('/newtimeline', 'NewTimelineController@newtimeline');
+
+
+Route::get('/timeline', 'TimelineController@index');
+Route::get('/timelineold', 'TimelineoldController@index');
+Route::get('/faq', 'faqController@index');
+
+Route::get('/blog-item', 'BlogItemController@index');
+Route::get('/portfolio', 'PortfolioController@portfolio');
+
+
+Route::get('/farzanasathi', 'FarzanasathiController@index');
+ //php artisan make:controller FarzanasathiController
 

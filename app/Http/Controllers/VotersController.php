@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Input;
 use Redirect;
@@ -40,9 +41,10 @@ class VotersController extends Controller {
     {
         $input = Input::all();
         //dd($input);
-        Voter::create( $input );
+        Voter::create($input);
 
-        return Redirect::route('voters.index')->with('message','New Voter Successfully Created.');
+        Session::flash('message','New Voter Successfully Created');
+        return Redirect::route('voters.index');
     }
 
     /**
@@ -88,5 +90,4 @@ class VotersController extends Controller {
     {
         //
     }
-
 }
